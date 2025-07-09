@@ -5,7 +5,7 @@ A fast, minimalist personal website for Viktor Livar — built with **Next.js (A
 ## 🚀 Features
 
 - ✨ Fully static site (no Lambda)
-- ⚡ Built with Next.js + Tailwind CSS
+- ⚡ Built with Next.js
 - 🌍 Deployed via AWS CDK (S3 + CloudFront)
 - 📄 SEO-optimized (HTML pre-rendered)
 - 🧰 Monorepo managed with pnpm workspaces
