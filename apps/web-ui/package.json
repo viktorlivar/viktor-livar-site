@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "upload": "aws s3 sync out/ s3://viktor-livar-site-temp --delete",
+    "invalidate": "aws cloudfront create-invalidation --distribution-id E2J9TS3IT5CMO7 --paths \"/*\"",
+    "deploy": "pnpm build && pnpm upload && pnpm invalidate"
   },
   "dependencies": {
     "react": "^19.0.0",

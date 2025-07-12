@@ -8,13 +8,16 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "synth-main": "cdk synth viktor-livar-site-main",
+    "deploy-main": "cdk deploy viktor-livar-site-main --require-approval never",
+    "full-deploy-main": "pnpm synth-main && pnpm deploy-main"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "22.7.9",
-    "aws-cdk-lib": "2.202.0",
     "aws-cdk": "2.1020.2",
+    "aws-cdk-lib": "2.202.0",
     "constructs": "^10.4.2",
     "esbuild": "^0.25.6",
     "jest": "^29.7.0",
