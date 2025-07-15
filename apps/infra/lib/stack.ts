@@ -1,53 +1,51 @@
-import * as cdk from "aws-cdk-lib";
-import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
-import * as origins from "aws-cdk-lib/aws-cloudfront-origins";
-import * as s3 from "aws-cdk-lib/aws-s3";
-import { Construct } from "constructs";
+import * as cdk from 'aws-cdk-lib';
+import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
+import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
+import * as s3 from 'aws-cdk-lib/aws-s3';
+import { Construct } from 'constructs';
 
 export class MainStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const siteBucket = new s3.Bucket(this, "WebSiteBucket", {
-      bucketName: "viktor-livar-site-temp",
-      publicReadAccess: false,
+    const siteBucket = new s3.Bucket(this, 'WebSiteBucket', {
+      bucketName: 'viktor-livar-site-temp', // Use your preferred name or remove to auto-generate
+      websiteIndexDocument: 'index.html',
+      websiteErrorDocument: '404.html',
+      publicReadAccess: true,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
-      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      blockPublicAccess: new s3.BlockPublicAccess({
+        blockPublicAcls: false,
+        blockPublicPolicy: false,
+        ignorePublicAcls: false,
+        restrictPublicBuckets: false,
+      }),
     });
 
-    const distribution = new cloudfront.Distribution(
-      this,
-      "CloudfrontDistribution",
-      {
-        comment: `Cloudfront distribution for viktor-livar-site`,
-        defaultRootObject: "index.html",
-        enabled: true,
-        httpVersion: cloudfront.HttpVersion.HTTP2,
-        sslSupportMethod: cloudfront.SSLMethod.SNI,
-        defaultBehavior: {
-          origin: new origins.S3Origin(siteBucket, {
-            originId: "S3WebsiteBucketOrigin",
-          }),
-          compress: true,
-          allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
-          viewerProtocolPolicy:
-            cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+    const distribution = new cloudfront.Distribution(this, 'CloudfrontDistribution', {
+      comment: `Distribution for viktor-livar-site`,
+      defaultRootObject: 'index.html',
+      defaultBehavior: {
+        origin: new origins.HttpOrigin(siteBucket.bucketWebsiteDomainName, {
+          protocolPolicy: cloudfront.OriginProtocolPolicy.HTTP_ONLY,
+        }),
+        viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+        compress: true,
+      },
+      errorResponses: [
+        {
+          httpStatus: 404,
+          responseHttpStatus: 404,
+          responsePagePath: '/404.html',
+          ttl: cdk.Duration.minutes(5),
         },
-        errorResponses: [
-          {
-            httpStatus: 403,
-            responsePagePath: "/index.html",
-            responseHttpStatus: 200,
-            ttl: cdk.Duration.days(7),
-          },
-        ],
-      }
-    );
+      ],
+    });
 
-    new cdk.CfnOutput(this, "CloudFrontURL", {
+    new cdk.CfnOutput(this, 'CloudFrontURL', {
       value: `https://${distribution.distributionDomainName}`,
-      description: "URL to access the deployed site",
+      description: 'URL to access the deployed site',
     });
   }
 }
