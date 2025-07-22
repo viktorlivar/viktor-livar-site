@@ -9,7 +9,7 @@ export class MainStack extends cdk.Stack {
     super(scope, id, props);
 
     const siteBucket = new s3.Bucket(this, 'WebSiteBucket', {
-      bucketName: 'viktor-livar-site-temp', // Use your preferred name or remove to auto-generate
+      bucketName: 'viktor-livar-site-temp', // Will be replaced with the domain name
       websiteIndexDocument: 'index.html',
       websiteErrorDocument: '404.html',
       publicReadAccess: true,
