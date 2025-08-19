@@ -46,6 +46,8 @@ export default function Home() {
           </div>
         </section>
 
+        <div className={styles['hero-section-separator-line']} />
+
         <section id={sections.services} className={styles['section-content']}>
           <h2>Services</h2>
 
@@ -97,25 +99,41 @@ export default function Home() {
 
           <div className={styles['technologies-container']}>
             <div className={csn(styles['technologies-item'], styles['technologies-big-item'])}>
-              AWS
+              <img src="tech/aws.svg" alt="aws" />
             </div>
             <div className={csn(styles['technologies-item'], styles['technologies-big-item'])}>
-              NodeJS
+              <img src="tech/nodejs.svg" alt="nodejs" />
             </div>
             <div className={csn(styles['technologies-item'], styles['technologies-big-item'])}>
-              React
+              <img src="tech/react.svg" alt="react" />
             </div>
             <div className={csn(styles['technologies-item'], styles['technologies-big-item'])}>
-              PostgreSQL
+              <img src="tech/postgresql.svg" alt="postgresql" />
             </div>
-            <div className={styles['technologies-item']}>TS</div>
-            <div className={styles['technologies-item']}>JS</div>
-            <div className={styles['technologies-item']}>Go</div>
-            <div className={styles['technologies-item']}>MUI</div>
-            <div className={styles['technologies-item']}>Redux</div>
-            <div className={styles['technologies-item']}>GraphQL</div>
-            <div className={styles['technologies-item']}>Serverless</div>
-            <div className={styles['technologies-item']}>Apollo</div>
+            <div className={styles['technologies-item']}>
+              <img src="tech/typescript.svg" alt="typescript" />
+            </div>
+            <div className={styles['technologies-item']}>
+              <img src="tech/javascript.svg" alt="javascript" />
+            </div>
+            <div className={styles['technologies-item']}>
+              <img src="tech/nextjs.svg" alt="nextjs" />
+            </div>
+            <div className={styles['technologies-item']}>
+              <img src="tech/material-ui.svg" alt="material-ui" />
+            </div>
+            <div className={styles['technologies-item']}>
+              <img src="tech/golang.svg" alt="golang" />
+            </div>
+            <div className={styles['technologies-item']}>
+              <img src="tech/serverless.svg" alt="serverless" />
+            </div>
+            <div className={styles['technologies-item']}>
+              <img src="tech/graphql.svg" alt="graphql" />
+            </div>
+            <div className={styles['technologies-item']}>
+              <img src="tech/redux.svg" alt="redux" />
+            </div>
           </div>
         </section>
 
@@ -163,3 +181,19 @@ export default function Home() {
     </div>
   );
 }
+
+/*
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/aws.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/golang.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/graphql.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/javascript.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/material-ui.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/nextjs.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/nodejs.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/postgresql.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/react.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/redux.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/serverless.svg
+/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/typescript.svg
+
+*/
