@@ -25,7 +25,7 @@ export default function Header(props: HeaderProps) {
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, [isHidden, lastScrollY]);
 
   return (
     <header className={csn(styles.header, isHidden && styles.hidden, props.className)}>

@@ -5,6 +5,7 @@
     "infra": "bin/infra.js"
   },
   "scripts": {
+    "lint": "eslint . --max-warnings=0",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",

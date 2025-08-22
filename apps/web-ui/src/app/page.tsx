@@ -1,6 +1,7 @@
 import { csn } from '@/utils/class.utils';
 import styles from './page.module.css';
 import Header from '@/components/Header';
+import { technologies } from './technologies';
 
 const sections = {
   hero: 'hero',
@@ -9,6 +10,8 @@ const sections = {
   about: 'about',
   contact: 'contact',
 } as const;
+
+const EMAIL = 'viktor.livar.o@gmail.com';
 
 export default function Home() {
   return (
@@ -21,7 +24,7 @@ export default function Home() {
               Full-Stack MVP Development & Fractional CTO
             </h4>
           </div>
-          <div className={styles['contact-now-button-container']}>
+          <div className={styles['contact-now-button-header-container']}>
             <button className={styles['contact-now-button']}>Contact Now</button>
           </div>
           <div className={styles.navigation}>
@@ -98,63 +101,42 @@ export default function Home() {
           <h2>Technologies</h2>
 
           <div className={styles['technologies-container']}>
-            <div className={csn(styles['technologies-item'], styles['technologies-big-item'])}>
-              <img src="tech/aws.svg" alt="aws" />
-            </div>
-            <div className={csn(styles['technologies-item'], styles['technologies-big-item'])}>
-              <img src="tech/nodejs.svg" alt="nodejs" />
-            </div>
-            <div className={csn(styles['technologies-item'], styles['technologies-big-item'])}>
-              <img src="tech/react.svg" alt="react" />
-            </div>
-            <div className={csn(styles['technologies-item'], styles['technologies-big-item'])}>
-              <img src="tech/postgresql.svg" alt="postgresql" />
-            </div>
-            <div className={styles['technologies-item']}>
-              <img src="tech/typescript.svg" alt="typescript" />
-            </div>
-            <div className={styles['technologies-item']}>
-              <img src="tech/javascript.svg" alt="javascript" />
-            </div>
-            <div className={styles['technologies-item']}>
-              <img src="tech/nextjs.svg" alt="nextjs" />
-            </div>
-            <div className={styles['technologies-item']}>
-              <img src="tech/material-ui.svg" alt="material-ui" />
-            </div>
-            <div className={styles['technologies-item']}>
-              <img src="tech/golang.svg" alt="golang" />
-            </div>
-            <div className={styles['technologies-item']}>
-              <img src="tech/serverless.svg" alt="serverless" />
-            </div>
-            <div className={styles['technologies-item']}>
-              <img src="tech/graphql.svg" alt="graphql" />
-            </div>
-            <div className={styles['technologies-item']}>
-              <img src="tech/redux.svg" alt="redux" />
-            </div>
+            {technologies.map((item) => (
+              <div
+                key={item.name}
+                className={csn(
+                  styles['technologies-item'],
+                  item.isBig && styles['technologies-big-item'],
+                )}
+              >
+                <img src={item.image} alt={item.name} />
+                <div className={styles['technologies-item-name']}>{item.name}</div>
+              </div>
+            ))}
           </div>
         </section>
 
         <div className={styles['section-separator-line']} />
 
         <section id={sections.about} className={styles['section-content']}>
-          <h2>About Viktor Livar</h2>
+          <h2 className={styles['about-section-title']}>About Viktor Livar</h2>
 
-          <div>
-            <p>
-              Viktor Livar is a seasoned software architect and startup technology advisor with
-              over a decade of experience leading engineering teams. Specializing in AWS,
-              Node.js, React, and PostgreSQL,
-            </p>
-            <br />
-            <p>
-              Viktor has built scalable solutions for startups across fintech and SaaS sectors.
-              His approach combines hands-on development, strategic technical leadership, and
-              practical advice—helping founders turn their ideas into robust, market-ready
-              products.
-            </p>
+          <div className={styles['about-section-content-container']}>
+            <img src="/viktorlivar.png" alt="Viktor Livar" />
+
+            <div className={styles['about-section-text-container']}>
+              <p>
+                Viktor Livar is a seasoned software architect and startup technology advisor
+                with over a decade of experience leading engineering teams. <br />
+                Specializing in AWS, Node.js, React, and PostgreSQL, Viktor has built scalable
+                solutions for startups across fintech and SaaS sectors.
+              </p>
+              <p>
+                His approach combines hands-on development, strategic technical leadership, and
+                practical advice—helping founders turn their ideas into robust, market-ready
+                products.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -162,38 +144,55 @@ export default function Home() {
 
         <section id={sections.contact} className={styles['section-content']}>
           <h2>Get in Touch</h2>
-          <p>Ready to discuss your MVP or need strategic technical guidance?</p>
 
-          <ul>
-            <li>Email: viktor.livar.o@gmail.com</li>
-            <li>LinkedIn: [LinkedIn Profile Link]</li>
-          </ul>
+          <div className={styles['contact-section-container']}>
+            <p>Ready to discuss your MVP or need strategic technical guidance?</p>
+
+            <button
+              className={csn(
+                styles['contact-now-button'],
+                styles['contact-section-contact-now-button'],
+              )}
+            >
+              Start a Conversation
+            </button>
+
+            <p className={styles['contact-section-contact-now-subtext']}>
+              Viktor typically responds within 24 hours.
+            </p>
+          </div>
         </section>
       </main>
 
       <footer className={styles.footer}>
-        <h4>© 2025 Viktor Livar • Full-Stack MVP Development & Fractional CTO</h4>
-        <h6>AWS • Node.js • React • PostgreSQL</h6>
-        <br />
-        <a href="">Email: viktor.livar.o@gmail.com</a>
-        <a href="">LinkedIn: [your profile]</a>
+        <div className={styles['footer-content-container']}>
+          <h4>© 2025 Viktor Livar • Full-Stack MVP Development & Fractional CTO</h4>
+          <h5>AWS • Node.js • React • PostgreSQL</h5>
+
+          <div>
+            <a href={`mailto:${EMAIL}`} className={styles['footer-email']}>
+              {EMAIL}
+            </a>
+          </div>
+
+          <div className={styles['social-media-group']}>
+            <a
+              href="https://www.linkedin.com/in/viktor-livar-72024a93"
+              target="_blank"
+              className={styles['social-media-item']}
+            >
+              <img src="icons/linkedin.svg" alt="linkedin" height={30} />
+            </a>
+            <a
+              href="https://x.com/Viktor21663863"
+              target="_blank"
+              className={styles['social-media-item']}
+            >
+              <img src="icons/x.svg" alt="x" height={30} />
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
 }
-
-/*
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/aws.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/golang.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/graphql.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/javascript.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/material-ui.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/nextjs.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/nodejs.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/postgresql.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/react.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/redux.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/serverless.svg
-/mnt/SSD_WORK/ot-viktor-livar-site/apps/web-ui/public/tech/typescript.svg
-
-*/

@@ -32,8 +32,6 @@
   max-width: var(--max-content-width);
   min-width: var(--max-content-width);
   margin: auto;
-  /* border-right: 1px solid rgba(255, 255, 255, 0.205);
-  border-left: 1px solid rgba(255, 255, 255, 0.205); */
 }
 
 .header-title-container {
@@ -54,7 +52,7 @@
   opacity: 0.8;
 }
 
-.contact-now-button-container {
+.contact-now-button-header-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,9 +122,6 @@
 }
 
 .section-content {
-  /* border-right: 1px solid rgba(255, 255, 255, 0.205);
-  border-left: 1px solid rgba(255, 255, 255, 0.205); */
-
   max-width: var(--max-content-width);
   min-width: var(--max-content-width);
   margin: auto;
@@ -142,6 +137,8 @@
   background-color: var(--separator-line-color);
   margin: calc(var(--spacing) * 6) auto 0;
 }
+
+/*********** Hero Section ***********/
 
 .hero-section {
   background-image: url('/bg.svg');
@@ -188,6 +185,8 @@
   width: 100%;
 }
 
+/*********** Services Section ***********/
+
 .service-container {
   display: flex;
   flex-direction: column;
@@ -208,6 +207,8 @@
   font-weight: 400;
 }
 
+/*********** Technologies Section ***********/
+
 .technologies-container {
   display: grid;
   grid-template-columns: repeat(6, calc((var(--max-content-width) - var(--spacing) * 5) / 6));
@@ -223,20 +224,145 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.technologies-item:hover img {
+  transform: translateY(-0.5em) scale(0.8);
 }
 
 .technologies-big-item {
+  padding: calc(var(--spacing) * 4);
   grid-column: span 2;
   grid-row: span 2;
 }
 
+.technologies-big-item:hover img {
+  transform: translateY(-0.15em) scale(0.9);
+}
+
 .technologies-item img {
+  transition: 0.3s ease-in-out;
   max-width: 100%;
   max-height: 100%;
 }
 
+.technologies-item-name {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  margin-bottom: var(--spacing);
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  user-select: none;
+  height: var(--technology-item-name-height);
+}
+
+.technologies-big-item .technologies-item-name {
+  margin-bottom: calc(var(--spacing) * 2);
+}
+
+.technologies-item:hover .technologies-item-name {
+  opacity: 1;
+}
+
+/*********** About Section ***********/
+
+.about-section-title {
+  margin-bottom: calc(var(--spacing) * 2);
+}
+
+.about-section-content-container {
+  display: flex;
+}
+
+.about-section-content-container img {
+  border-radius: calc(var(--border-radius) * 4);
+  height: 14em;
+  width: 14em;
+  margin-top: 0.5em;
+}
+
+.about-section-text-container {
+  margin-left: calc(var(--spacing) * 2);
+  font-size: 1.1em;
+  line-height: 1.8em;
+}
+
+.about-section-text-container p {
+  margin-bottom: calc(var(--spacing) * 2);
+}
+
+/*********** Contact Section ***********/
+
+.contact-section-container {
+  margin-top: calc(var(--spacing) * 4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-section-contact-now-button {
+  margin: calc(var(--spacing) * 2) 0 var(--spacing);
+  height: 3em;
+  font-size: 1.2em;
+}
+
+.contact-section-contact-now-subtext {
+  font-size: 0.85em;
+  font-weight: 400;
+  color: rgb(155, 155, 155);
+}
+
+/*********** Footer ***********/
+
 .footer {
   margin-top: calc(var(--spacing) * 8);
-  padding: calc(var(--spacing) * 4);
+  padding: calc(var(--spacing) * 6);
   background-color: rgba(240, 248, 255, 0.089);
+}
+
+.footer-content-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: var(--max-content-width);
+}
+
+.footer h4 {
+  margin-bottom: calc(var(--spacing) * 1);
+  font-size: 1.3em;
+}
+
+.footer h5 {
+  font-size: 1.1em;
+  color: var(--main-color-light-2);
+  margin-bottom: calc(var(--spacing) * 2);
+}
+
+.footer-email {
+  transition: 0.3s ease-in-out;
+}
+
+.footer-email:hover {
+  color: var(--link-hover-color);
+}
+
+.social-media-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+  margin-top: calc(var(--spacing) * 2);
+}
+
+.social-media-item {
+  transition: 0.3s ease-in-out;
+}
+
+.social-media-item:hover {
+  transform: scale(1.2);
 }
