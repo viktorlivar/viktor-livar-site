@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Viktor Livar',
+  title: 'Viktor Livar • Full-Stack MVP Development & Fractional CTO',
   description:
     'Viktor Livar • Full-Stack MVP Development & Fractional CTO | AWS • Node.js • React • PostgreSQL',
 };
