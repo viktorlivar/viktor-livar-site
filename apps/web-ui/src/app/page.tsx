@@ -1,6 +1,8 @@
 import Header from '@/components/Header';
+import HeaderMenu from '@/components/HeaderMenu';
 import RevealProvider from '@/components/RevealProvider';
 import { csn } from '@/utils/class.utils';
+import Image from 'next/image';
 import styles from './page.module.css';
 import { technologies } from './technologies';
 
@@ -29,11 +31,21 @@ export default function Home() {
             <div className={styles['contact-now-button-header-container']}>
               <button className={styles['contact-now-button']}>Contact Now</button>
             </div>
+
             <div className={styles.navigation}>
               <a href={`#${sections.services}`}>Services</a>
               <a href={`#${sections.about}`}>About</a>
               <a href={`#${sections.contact}`}>Contact</a>
             </div>
+
+            <HeaderMenu rootClassName={styles['header-menu-root']}>
+              <div className={styles['header-menu-content']}>
+                <a href={`#${sections.services}`}>Services</a>
+                <a href={`#${sections.about}`}>About</a>
+                <a href={`#${sections.contact}`}>Contact</a>
+                <button className={styles['contact-now-button']}>Start a Conversation</button>
+              </div>
+            </HeaderMenu>
           </div>
         </Header>
 
@@ -112,7 +124,9 @@ export default function Home() {
                   )}
                   data-reveal
                 >
-                  <img src={item.image} alt={item.name} />
+                  <div className={styles['technologies-item-image-container']}>
+                    <Image src={item.image} alt={item.name} fill />
+                  </div>
                   <div className={styles['technologies-item-name']}>{item.name}</div>
                 </div>
               ))}
@@ -127,7 +141,13 @@ export default function Home() {
             </h2>
 
             <div className={styles['about-section-content-container']}>
-              <img src="/viktorlivar.png" alt="Viktor Livar" data-reveal />
+              <Image
+                src="/viktorlivar.png"
+                alt="Viktor Livar"
+                data-reveal
+                width={32}
+                height={32}
+              />
 
               <div className={styles['about-section-text-container']}>
                 <p data-reveal>
@@ -151,7 +171,7 @@ export default function Home() {
             <h2 data-reveal>Get in Touch</h2>
 
             <div className={styles['contact-section-container']}>
-              <p data-reveal>
+              <p className={styles['contact-section-main-text']} data-reveal>
                 Ready to discuss your MVP or need strategic technical guidance?
               </p>
 
@@ -189,14 +209,14 @@ export default function Home() {
                 target="_blank"
                 className={styles['social-media-item']}
               >
-                <img src="icons/linkedin.svg" alt="linkedin" height={30} />
+                <Image src="icons/linkedin.svg" alt="linkedin" width={32} height={32} />
               </a>
               <a
                 href="https://x.com/Viktor21663863"
                 target="_blank"
                 className={styles['social-media-item']}
               >
-                <img src="icons/x.svg" alt="x" height={30} />
+                <Image src="icons/x.svg" alt="x" width={32} height={32} />
               </a>
             </div>
           </div>
