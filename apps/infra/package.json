@@ -5,6 +5,8 @@
     "infra": "bin/infra.js"
   },
   "scripts": {
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
