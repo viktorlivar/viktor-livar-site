@@ -2,8 +2,17 @@
 
 import { useReveal } from '@/hooks/useReveal';
 import styles from './RevealProvider.module.css';
+import { csn } from '@/utils/class.utils';
 
-export default function RevealProvider(props: { children: React.ReactNode }) {
+interface RevealProviderProps {
+  children: React.ReactNode;
+  rootClassName?: string;
+}
+export default function RevealProvider(props: RevealProviderProps) {
   useReveal();
-  return <div className={styles['reveal-provider-wrapper']}>{props.children}</div>;
+  return (
+    <div className={csn(styles['reveal-provider-wrapper'], props.rootClassName)}>
+      {props.children}
+    </div>
+  );
 }

@@ -18,8 +18,8 @@ const EMAIL = 'viktor.livar.o@gmail.com';
 
 export default function Home() {
   return (
-    <RevealProvider>
-      <div className={styles.page}>
+    <div className={styles.page}>
+      <RevealProvider>
         <Header className={styles.header}>
           <div className={styles['header-content']}>
             <div className={styles['header-title-container']}>
@@ -182,7 +182,7 @@ export default function Home() {
                 )}
                 data-reveal
               >
-                Start a Conversation
+                Contact Now
               </button>
 
               <p className={styles['contact-section-contact-now-subtext']} data-reveal>
@@ -221,7 +221,7 @@ export default function Home() {
             </div>
           </div>
         </footer>
-      </div>
-    </RevealProvider>
+      </RevealProvider>
+    </div>
   );
 }
