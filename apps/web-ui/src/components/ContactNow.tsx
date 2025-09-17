@@ -30,6 +30,7 @@ export default function ContactNow(props: ContactNowProps): React.ReactElement {
     </>
   );
 }
+
 const ESCAPE_KEY = 'Escape';
 
 function Dialog({ onClose }: { onClose: () => void }): React.ReactElement {
@@ -75,6 +76,9 @@ function Dialog({ onClose }: { onClose: () => void }): React.ReactElement {
   );
 }
 
+const API_URL = 'https://kq7oy8tm7f.execute-api.us-east-1.amazonaws.com';
+const API_ROUTE_CONTACT = 'contact';
+
 function Form({ onDone }: { onDone: () => void }): React.ReactElement {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -84,14 +88,11 @@ function Form({ onDone }: { onDone: () => void }): React.ReactElement {
     e.preventDefault();
     setStatus('sending');
     try {
-      const res = await fetch(
-        'https://kq7oy8tm7f.execute-api.us-east-1.amazonaws.com/contact',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, message }),
-        },
-      );
+      const res = await fetch(`${API_URL}/${API_ROUTE_CONTACT}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, message }),
+      });
       if (!res.ok) throw new Error();
       setStatus('ok');
       // Small delay so user sees success, then close
