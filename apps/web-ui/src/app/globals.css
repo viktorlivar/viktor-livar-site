@@ -4,6 +4,20 @@
   --header-height: 74px;
   --border-radius: 4px;
   --min-width: 320px;
+  --spacing: 0.5em;
+
+  --header-z-index: 1000;
+  --dialog-z-index: 1001;
+
+  --main-color-dark: #03045e;
+  --main-color: #023e8a;
+  --main-color-light: #0077b6;
+  --main-color-light-2: #0096c7;
+
+  --secondary-color: #c04a13;
+  --secondary-color-light: #c77802;
+
+  --dialog-border-color: rgba(255, 255, 255, 0.199);
 }
 
 html,

@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   max-height: var(--header-height);
-  z-index: 1000;
+  z-index: var(--header-z-index);
   transform: translateY(0);
   transition: transform 0.3s ease-in-out;
 }

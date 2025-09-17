@@ -1,8 +1,8 @@
-import base from '../../eslint.config.mjs';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import globals from 'globals';
 import configPrettier from 'eslint-config-prettier';
+import globals from 'globals';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import base from '../../eslint.config.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

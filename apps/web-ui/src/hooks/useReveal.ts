@@ -1,7 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 
-export function useReveal(options: IntersectionObserverInit = {}) {
+export function useReveal(options: IntersectionObserverInit = {}): void {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 

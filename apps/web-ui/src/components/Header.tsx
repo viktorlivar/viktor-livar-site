@@ -11,12 +11,12 @@ interface HeaderProps {
 
 const HIDE_THRESHOLD = 100;
 
-export default function Header(props: HeaderProps) {
+export default function Header(props: HeaderProps): React.ReactElement {
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       const hasToBeHidden = needToHide(lastScrollY);
       if (isHidden !== hasToBeHidden) setIsHidden(hasToBeHidden);
       setLastScrollY(window.scrollY);

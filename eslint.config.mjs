@@ -31,7 +31,6 @@ export default tseslint.config(
         sourceType: 'module',
         ecmaFeatures: { jsx: true },
       },
-
       globals: globals.node,
     },
     plugins: { prettier: eslintPluginPrettier },
@@ -40,6 +39,14 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': [
         'warn',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/explicit-function-return-type': [
+        'warn',
+        {
+          allowExpressions: true,
+          allowTypedFunctionExpressions: true,
+          allowHigherOrderFunctions: true,
+        },
       ],
     },
   },
