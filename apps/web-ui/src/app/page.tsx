@@ -6,6 +6,7 @@ import { csn } from '@/utils/class.utils';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { technologies } from './technologies';
+import { MAIN_EMAIL } from '@/const';
 
 const sections = {
   hero: 'hero',
@@ -14,8 +15,6 @@ const sections = {
   about: 'about',
   contact: 'contact',
 } as const;
-
-const EMAIL = 'viktor.livar.o@gmail.com';
 
 export default function Home(): React.ReactElement {
   return (
@@ -206,8 +205,8 @@ export default function Home(): React.ReactElement {
             <h5>AWS • Node.js • React • PostgreSQL</h5>
 
             <div>
-              <a href={`mailto:${EMAIL}`} className={styles['footer-email']}>
-                {EMAIL}
+              <a href={`mailto:${MAIN_EMAIL}`} className={styles['footer-email']}>
+                {MAIN_EMAIL}
               </a>
             </div>
 

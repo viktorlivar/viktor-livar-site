@@ -1,5 +1,6 @@
 'use client';
 
+import { MAIN_EMAIL } from '@/const';
 import { csn } from '@/utils/class.utils';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
@@ -103,8 +104,7 @@ function Form({ onDone }: { onDone: () => void }): React.ReactElement {
   };
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    <form onSubmit={submit} className={styles.form}>
+    <form onSubmit={submit as React.FormEventHandler<HTMLFormElement>} className={styles.form}>
       <label className={styles.label}>
         <div>Your Email</div>
         <input
@@ -139,8 +139,7 @@ function Form({ onDone }: { onDone: () => void }): React.ReactElement {
       )}
       {status === 'err' && (
         <p className={styles['centered-text']}>
-          Something went wrong. Please email{' '}
-          <a href="mailto:viktor.livar.o@gmail.com">viktor.livar.o@gmail.com</a>.
+          Something went wrong. Please email <a href={`mailto:${MAIN_EMAIL}`}>{MAIN_EMAIL}</a>.
         </p>
       )}
     </form>

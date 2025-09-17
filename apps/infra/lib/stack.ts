@@ -81,10 +81,7 @@ export class MainStack extends cdk.Stack {
 
     const api = new apigwv2.HttpApi(this, 'ContactApi', {
       corsPreflight: {
-        allowOrigins: [
-          'http://localhost:3000', // TODO: remove for production
-          `https://${distribution.distributionDomainName}`,
-        ],
+        allowOrigins: [`https://${distribution.distributionDomainName}`],
         allowMethods: [apigwv2.CorsHttpMethod.POST, apigwv2.CorsHttpMethod.OPTIONS],
         allowHeaders: ['content-type', 'authorization'],
       },
