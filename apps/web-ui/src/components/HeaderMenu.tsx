@@ -2,15 +2,16 @@
 
 import { csn } from '@/utils/class.utils';
 import Image from 'next/image';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './HeaderMenu.module.css';
 
 interface HeaderProps {
   children: React.ReactNode;
   rootClassName?: string;
+  rootMenuClassName?: string;
 }
 
-export default function HeaderMenu(props: HeaderProps) {
+export default function HeaderMenu(props: HeaderProps): React.ReactElement {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -25,7 +26,7 @@ export default function HeaderMenu(props: HeaderProps) {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const handleClickOutside = (e: MouseEvent): void => {
       if (!isOpen) return;
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setIsOpen(false);
@@ -42,7 +43,10 @@ export default function HeaderMenu(props: HeaderProps) {
       <button className={csn(styles.button)} onClick={handleClick}>
         <Image src="/icons/header-menu.svg" alt="menu" width={36} height={36} />
       </button>
-      {isOpen ? props.children : null}
+
+      <div className={csn(props.rootMenuClassName, !isOpen ? styles['menu-closed'] : null)}>
+        {props.children}
+      </div>
     </div>
   );
 }

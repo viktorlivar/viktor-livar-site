@@ -6,17 +6,7 @@
   --tile-color: #ffffff1a;
   --link-hover-color: #0077b6;
   --separator-line-color: rgba(255, 255, 255, 0.205);
-
-  --main-color-dark: #03045e;
-  --main-color: #023e8a;
-  --main-color-light: #0077b6;
-  --main-color-light-2: #0096c7;
-
-  --secondary-color: #c04a13;
-  --secondary-color-light: #c77802;
-
   --max-content-width: min(100vw, 800px);
-  --spacing: 0.5em;
 }
 
 .header {
@@ -95,7 +85,7 @@
   display: inline-block;
   letter-spacing: normal;
   outline: none;
-  padding: var(--spacing) calc(var(--spacing) * 4);
+  padding: var(--spacing) calc(var(--spacing) * 3);
   text-align: center;
   text-decoration: none;
   transform: translate3d(0, 0, 0);
@@ -160,11 +150,14 @@
   }
 }
 
-.header-menu-content {
+.header-menu {
   position: absolute;
   top: var(--header-height);
   right: 0;
   left: 0;
+}
+
+.header-menu-content {
   background-color: var(--background);
   display: flex;
   flex-direction: column;

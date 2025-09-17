@@ -1,3 +1,4 @@
+import ContactNow from '@/components/ContactNow';
 import Header from '@/components/Header';
 import HeaderMenu from '@/components/HeaderMenu';
 import RevealProvider from '@/components/RevealProvider';
@@ -16,7 +17,7 @@ const sections = {
 
 const EMAIL = 'viktor.livar.o@gmail.com';
 
-export default function Home() {
+export default function Home(): React.ReactElement {
   return (
     <div className={styles.page}>
       <RevealProvider>
@@ -29,7 +30,10 @@ export default function Home() {
               </h4>
             </div>
             <div className={styles['contact-now-button-header-container']}>
-              <button className={styles['contact-now-button']}>Contact Now</button>
+              <ContactNow
+                label="Start a Conversation"
+                buttonClassName={styles['contact-now-button']}
+              />
             </div>
 
             <div className={styles.navigation}>
@@ -38,12 +42,18 @@ export default function Home() {
               <a href={`#${sections.contact}`}>Contact</a>
             </div>
 
-            <HeaderMenu rootClassName={styles['header-menu-root']}>
+            <HeaderMenu
+              rootClassName={styles['header-menu-root']}
+              rootMenuClassName={styles['header-menu']}
+            >
               <div className={styles['header-menu-content']}>
                 <a href={`#${sections.services}`}>Services</a>
                 <a href={`#${sections.about}`}>About</a>
                 <a href={`#${sections.contact}`}>Contact</a>
-                <button className={styles['contact-now-button']}>Start a Conversation</button>
+                <ContactNow
+                  label="Start a Conversation"
+                  buttonClassName={styles['contact-now-button']}
+                />
               </div>
             </HeaderMenu>
           </div>
@@ -175,15 +185,13 @@ export default function Home() {
                 Ready to discuss your MVP or need strategic technical guidance?
               </p>
 
-              <button
-                className={csn(
+              <ContactNow
+                label="Start a Conversation"
+                buttonClassName={csn(
                   styles['contact-now-button'],
                   styles['contact-section-contact-now-button'],
                 )}
-                data-reveal
-              >
-                Contact Now
-              </button>
+              />
 
               <p className={styles['contact-section-contact-now-subtext']} data-reveal>
                 Viktor typically responds within 24 hours.
