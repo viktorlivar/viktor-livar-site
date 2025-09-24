@@ -2,11 +2,11 @@ import ContactNow from '@/components/ContactNow';
 import Header from '@/components/Header';
 import HeaderMenu from '@/components/HeaderMenu';
 import RevealProvider from '@/components/RevealProvider';
+import { MAIN_EMAIL } from '@/const';
 import { csn } from '@/utils/class.utils';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { technologies } from './technologies';
-import { MAIN_EMAIL } from '@/const';
 
 const sections = {
   hero: 'hero',
@@ -160,15 +160,17 @@ export default function Home(): React.ReactElement {
 
               <div className={styles['about-section-text-container']}>
                 <p data-reveal>
-                  Viktor Livar is a seasoned software architect and startup technology advisor
-                  with over a decade of experience leading engineering teams. <br />
-                  Specializing in AWS, Node.js, React, and PostgreSQL, Viktor has built
-                  scalable solutions for startups across fintech and SaaS sectors.
+                  Viktor Livar is a software architect and startup technology advisor with{' '}
+                  <b>15 years in IT</b> and <b>over a decade of engineering leadership</b>. He
+                  specializes in <b>AWS, Node.js, React, and PostgreSQL</b>, and has delivered
+                  scalable solutions in{' '}
+                  <b>telemetry/observability, smart home/IoT, SaaS, and fintech</b>.
                 </p>
                 <p data-reveal>
-                  His approach combines hands-on development, strategic technical leadership,
-                  and practical advice—helping founders turn their ideas into robust,
-                  market-ready products.
+                  Viktor partners with founders from concept through launch, combining{' '}
+                  <b>hands-on development</b> with <b>strategic technical direction</b>. His
+                  focus is on clear architecture, fast iteration, and reliable delivery—so
+                  early-stage teams can reach the market with confidence.
                 </p>
               </div>
             </div>
