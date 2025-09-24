@@ -77,7 +77,7 @@ function Dialog({ onClose }: { onClose: () => void }): React.ReactElement {
   );
 }
 
-const API_URL = 'https://kq7oy8tm7f.execute-api.us-east-1.amazonaws.com';
+const API_URL = 'https://my90aqwraj.execute-api.us-east-1.amazonaws.com';
 const API_ROUTE_CONTACT = 'contact';
 
 function Form({ onDone }: { onDone: () => void }): React.ReactElement {
