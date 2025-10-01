@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
 import React from 'react';
+import './globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -14,9 +14,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Viktor Livar • Full-Stack MVP Development & Fractional CTO',
+  metadataBase: new URL('https://viktorlivar.com'),
+  title: {
+    default: 'Viktor Livar • Full-Stack MVP Development & Fractional CTO',
+    template: '%s | Viktor Livar',
+  },
   description:
-    'Viktor Livar • Full-Stack MVP Development & Fractional CTO | AWS • Node.js • React • PostgreSQL',
+    'Hands-on full-stack expertise to take your idea from concept to market-ready MVP quickly and efficiently.',
+  openGraph: {
+    type: 'website',
+    url: 'https://viktorlivar.com/',
+    title: 'Viktor Livar — Rapid MVP Development for Early-Stage Startups',
+    description: 'AWS • Node.js • React • PostgreSQL. Consulting and Fractional CTO services.',
+    siteName: 'Viktor Livar',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Viktor Livar — MVP Development & Fractional CTO',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@Viktor21663863',
+    site: '@Viktor21663863',
+    title: 'Viktor Livar — Rapid MVP Development',
+    description: 'Hands-on full-stack expertise to ship MVPs fast.',
+    images: ['/og-image.png'],
+  },
+  alternates: {
+    canonical: 'https://viktorlivar.com/',
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
