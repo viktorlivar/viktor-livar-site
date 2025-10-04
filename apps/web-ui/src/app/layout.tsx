@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: 'Viktor Livar',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Viktor Livar — MVP Development & Fractional CTO',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     site: '@Viktor21663863',
     title: 'Viktor Livar — Rapid MVP Development',
     description: 'Hands-on full-stack expertise to ship MVPs fast.',
-    images: ['/og-image.png'],
+    images: ['/og-image.jpg'],
   },
   alternates: {
     canonical: 'https://viktorlivar.com/',
