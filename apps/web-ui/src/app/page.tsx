@@ -7,12 +7,14 @@ import { csn } from '@/utils/class.utils';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { technologies } from './technologies';
+import { testimonials } from './testimonials';
 
 const sections = {
   hero: 'hero',
   services: 'services',
   technologies: 'technologies',
   about: 'about',
+  testimonials: 'testimonials',
   contact: 'contact',
 } as const;
 
@@ -173,6 +175,32 @@ export default function Home(): React.ReactElement {
                   early-stage teams can reach the market with confidence.
                 </p>
               </div>
+            </div>
+          </section>
+
+          <div className={styles['section-separator-line']} />
+
+          <section id={sections.testimonials} className={styles['section-content']}>
+            <h2 data-reveal>Testimonials</h2>
+
+            <div className={styles['testimonial-section-grid']}>
+              {testimonials.map((item, i) => (
+                <blockquote
+                  key={i}
+                  className={styles['testimonial-section-card']}
+                  data-reveal
+                  style={{ transitionDelay: `${i * 80}ms` }} // For proper reveal timing
+                >
+                  <div className={styles['testimonial-section-author-container']}>
+                    <div className={styles['testimonial-section-author']}>{item.author}</div>
+                    <div className={styles['testimonial-section-author-subtitle']}>
+                      {item.position} at {item.company}
+                    </div>
+                  </div>
+
+                  <p className={styles['testimonial-section-quote']}>“{item.quote}”</p>
+                </blockquote>
+              ))}
             </div>
           </section>
 
