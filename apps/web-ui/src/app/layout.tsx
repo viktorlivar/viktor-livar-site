@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import Script from 'next/script';
 import React from 'react';
 import './globals.css';
 
@@ -53,6 +54,8 @@ export const metadata: Metadata = {
   },
 };
 
+const JS_IS_ENABLED_CLASS = 'js-is-enabled';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,6 +64,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script id="js-flag" strategy="beforeInteractive">
+          {`document.documentElement.classList.add('${JS_IS_ENABLED_CLASS}');`}
+        </Script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
